@@ -58,7 +58,8 @@
     self.label.textAlignment = NSTextAlignmentCenter;
     self.label.numberOfLines = 0;
     self.label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15];
-    self.label.text = [[[@"What do you think about " localizedString] stringByAppendingString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]] stringByAppendingString:@"?"];
+    NSString* appname = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleNameKey];
+    self.label.text = [[[@"What do you think about " localizedString] stringByAppendingString:appname] stringByAppendingString:@"?"];
     [self.container addSubview:self.label];
     
     self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -38,7 +38,7 @@ PROTECTED_ABXMODEL
             
             // Make sure we don't match the default language code
             NSString *defaultLanguage = [attributes valueForKeyPath:@"language.code"];
-            if (!defaultLanguage || ![language caseInsensitiveCompare:defaultLanguage] == NSOrderedSame) {
+            if (!defaultLanguage || [language caseInsensitiveCompare:defaultLanguage] != NSOrderedSame) {
                 // Look for an exact match
                 [self lookForLocalisation:attributes language:language];
                 
