@@ -66,20 +66,17 @@
     
     // Powered by
     UIButton *appbotButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    appbotButton.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - 33, CGRectGetWidth(self.view.frame), 33);
+    appbotButton.translatesAutoresizingMaskIntoConstraints = NO;
     appbotButton.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1];
-    [appbotButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [appbotButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [appbotButton setTitle:[[@"Powered by" localizedString] stringByAppendingString:@" Appbot"] forState:UIControlStateNormal];
-    appbotButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     appbotButton.titleLabel.font = [UIFont systemFontOfSize:13];
     [appbotButton addTarget:self action:@selector(onAppbot) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:appbotButton];
-    
-    // Powered by seperator
-    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 33, CGRectGetWidth(self.view.frame), 1)];
-    seperator.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    seperator.backgroundColor = [UIColor colorWithWhite:0.8f alpha:1];
-    [self.view addSubview:seperator];
+    [appbotButton.heightAnchor constraintEqualToConstant:33.0].active = YES;
+    [appbotButton.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor].active = YES;
+    [appbotButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+    [appbotButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     
     // Activity Indicator
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
