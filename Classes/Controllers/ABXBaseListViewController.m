@@ -68,18 +68,26 @@
     [self.view addSubview:self.tableView];
     
     // Powered by
+    UIView *bottom = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    bottom.translatesAutoresizingMaskIntoConstraints = NO;
+    bottom.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1];
+    [self.view addSubview:bottom];
+    [bottom.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+    [bottom.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+    [bottom.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
+    
     UIButton *appbotButton = [UIButton buttonWithType:UIButtonTypeCustom];
     appbotButton.translatesAutoresizingMaskIntoConstraints = NO;
-    appbotButton.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1];
     [appbotButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [appbotButton setTitle:[[@"Powered by" localizedString] stringByAppendingString:@" Appbot"] forState:UIControlStateNormal];
     appbotButton.titleLabel.font = [ABXFont fontWithSize:13];
     [appbotButton addTarget:self action:@selector(onAppbot) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:appbotButton];
+    [bottom addSubview:appbotButton];
     [appbotButton.heightAnchor constraintEqualToConstant:33.0].active = YES;
+    [appbotButton.topAnchor constraintEqualToAnchor:bottom.topAnchor].active = YES;
     [appbotButton.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor].active = YES;
-    [appbotButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
-    [appbotButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
+    [appbotButton.leadingAnchor constraintEqualToAnchor:bottom.leadingAnchor].active = YES;
+    [appbotButton.trailingAnchor constraintEqualToAnchor:bottom.trailingAnchor].active = YES;
     
     // Activity Indicator
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];

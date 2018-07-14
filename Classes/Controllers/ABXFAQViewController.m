@@ -43,6 +43,8 @@
     
     self.title = [@"FAQ" localizedString];
     
+    [self addToolbar];
+    
     // Webview
     CGRect bounds = self.view.bounds;
     bounds.size.height -= 44;
@@ -51,8 +53,6 @@
     self.webview.clipsToBounds = NO;
     self.webview.delegate = self;
     [self.view addSubview:self.webview];
-    
-    [self addToolbar];
     
     // Nav buttons
     if (!self.hideContactButton) {
@@ -93,6 +93,14 @@
     // Dispose of any resources that can be recreated.r
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    CGRect bounds = self.view.bounds;
+    bounds.size.height -= self.bottom.frame.size.height;
+    self.webview.frame = bounds;
+}
+
 #pragma mark - Buttons
 
 - (void)onContact
@@ -107,13 +115,14 @@
 {
     // Toolbar
     UIView *bottom = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 44, CGRectGetWidth(self.view.frame), 44)];
-    bottom.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    bottom.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:bottom];
     self.bottom = bottom;
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:bottom.bounds];
-    toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [bottom addSubview:toolbar];
+    bottom.translatesAutoresizingMaskIntoConstraints = NO;
+    bottom.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1];
+    [self.view addSubview:bottom];
+    [bottom.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+    [bottom.topAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor constant:-44.0].active = YES;
+    [bottom.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+    [bottom.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     
     // Voting label
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 200, 44)];
