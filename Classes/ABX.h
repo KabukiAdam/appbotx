@@ -14,3 +14,5 @@
 #import "ABXVersionNotificationView.h"
 
 #import "ABXAppStore.h"
+
+#import "ABXFont.h"
