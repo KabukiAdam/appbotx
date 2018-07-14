@@ -10,6 +10,7 @@
 
 #import "NSString+ABXSizing.h"
 #import "ABXFaq.h"
+#import "ABXFont.h"
 
 @interface ABXFAQTableViewCell ()
 
@@ -62,7 +63,7 @@
     static dispatch_once_t onceToken;
     static UIFont *font = nil;
     dispatch_once(&onceToken, ^{
-        font = [UIFont systemFontOfSize:15];
+        font = [ABXFont fontWithSize:15];
     });
     return font;
 }

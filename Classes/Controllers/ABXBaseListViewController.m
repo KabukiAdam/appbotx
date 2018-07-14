@@ -12,6 +12,9 @@
 
 #import "NSString+ABXLocalized.h"
 
+#import "ABXFont.h"
+
+
 @interface ABXBaseListViewController()
 
 @end
@@ -70,7 +73,7 @@
     appbotButton.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1];
     [appbotButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [appbotButton setTitle:[[@"Powered by" localizedString] stringByAppendingString:@" Appbot"] forState:UIControlStateNormal];
-    appbotButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    appbotButton.titleLabel.font = [ABXFont fontWithSize:13];
     [appbotButton addTarget:self action:@selector(onAppbot) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:appbotButton];
     [appbotButton.heightAnchor constraintEqualToConstant:33.0].active = YES;
@@ -116,7 +119,7 @@
         label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 0;
         label.text = error;
-        label.font = [UIFont systemFontOfSize:15];
+        label.font = [ABXFont fontWithSize:15];
         label.textColor = [UIColor blackColor];
         label.backgroundColor = [UIColor clearColor];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;

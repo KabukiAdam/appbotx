@@ -11,6 +11,7 @@
 #import "ABXVersion.h"
 #import "NSString+ABXSizing.h"
 #import "NSString+ABXLocalized.h"
+#import "ABXFont.h"
 
 @interface ABXVersionTableViewCell ()
 
@@ -33,14 +34,14 @@
         // Version number
         self.versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, (CGRectGetWidth(self.contentView.bounds) - 30)/2, 30)];
         self.versionLabel.textColor = [UIColor blackColor];
-        self.versionLabel.font = [UIFont systemFontOfSize:15];
+        self.versionLabel.font = [ABXFont fontWithSize:15];
         [self.contentView addSubview:self.versionLabel];
         
         // Release date
         self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.contentView.bounds), 10, (CGRectGetWidth(self.contentView.bounds) - 30)/2, 30)];
         self.dateLabel.textColor = [UIColor blackColor];
         self.dateLabel.textAlignment = NSTextAlignmentRight;
-        self.dateLabel.font = [UIFont systemFontOfSize:15];
+        self.dateLabel.font = [ABXFont fontWithSize:15];
         self.dateLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         [self.contentView addSubview:self.dateLabel];
         
@@ -88,7 +89,7 @@
     static dispatch_once_t onceToken;
     static UIFont *font = nil;
     dispatch_once(&onceToken, ^{
-        font = [UIFont systemFontOfSize:14];
+        font = [ABXFont fontWithSize:14];
     });
     return font;
 }

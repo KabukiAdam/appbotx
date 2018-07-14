@@ -12,6 +12,7 @@
 #import "ABXPromptView.h"
 #import "NSString+ABXLocalized.h"
 #import "UIViewController+ABXScreenshot.h"
+#import "ABXFont.h"
 
 @interface ABXViewController ()<ABXPromptViewDelegate>
 
@@ -142,7 +143,7 @@ static NSString* const kiTunesID = @"650762525";
 {
     // An example of the feedback window that you might launch from a 'report an issue' button
     // Where some meta data and a screenshot is attached
-    [ABXFeedbackViewController showFromController:self placeholder:nil email:nil metaData:@{ @"BugPrompt" : @YES } image:[self takeScreenshot] ];
+    [ABXFeedbackViewController showFromController:self placeholder:nil email:nil metaData:@{ @"BugPrompt" : @YES } image:[self takeScreenshot]];
 }
 
 #pragma mark - Alert

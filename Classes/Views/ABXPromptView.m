@@ -9,6 +9,7 @@
 #import "ABXPromptView.h"
 
 #import "NSString+ABXLocalized.h"
+#import "ABXFont.h"
 
 @interface ABXPromptView ()
 
@@ -57,7 +58,7 @@
     self.label.textColor = [UIColor colorWithWhite:0.1f alpha:1];
     self.label.textAlignment = NSTextAlignmentCenter;
     self.label.numberOfLines = 0;
-    self.label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15];
+    self.label.font = [ABXFont fontWithSize:15.0];
     NSString* appname = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleNameKey];
     self.label.text = [[[@"What do you think about " localizedString] stringByAppendingString:appname] stringByAppendingString:@"?"];
     [self.container addSubview:self.label];
@@ -69,7 +70,7 @@
     self.leftButton.layer.masksToBounds = YES;
     [self.leftButton setTitle:[@"I Love It!" localizedString] forState:UIControlStateNormal];
     [self.leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    self.leftButton.titleLabel.font = [ABXFont fontWithSize:15];
     [self.leftButton addTarget:self action:@selector(onLove) forControlEvents:UIControlEventTouchUpInside];
     [self.container addSubview:self.leftButton];
     
@@ -80,7 +81,7 @@
     self.rightButton.layer.masksToBounds = YES;
     [self.rightButton setTitle:[@"Could Be Better" localizedString] forState:UIControlStateNormal];
     [self.rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.rightButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    self.rightButton.titleLabel.font = [ABXFont fontWithSize:15];
     [self.rightButton addTarget:self action:@selector(onImprove) forControlEvents:UIControlEventTouchUpInside];
     [self.container addSubview:self.rightButton];
 }

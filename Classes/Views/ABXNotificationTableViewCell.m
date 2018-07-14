@@ -11,6 +11,7 @@
 #import "ABXNotification.h"
 
 #import "NSString+ABXSizing.h"
+#import "ABXFont.h"
 
 @interface ABXNotificationTableViewCell ()
 
@@ -33,7 +34,7 @@
         // Created date
         self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, (CGRectGetWidth(self.contentView.bounds) - 30)/2, 30)];
         self.dateLabel.textColor = [UIColor blackColor];
-        self.dateLabel.font = [UIFont systemFontOfSize:15];
+        self.dateLabel.font = [ABXFont fontWithSize:15];
         self.dateLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         [self.contentView addSubview:self.dateLabel];
         
@@ -53,6 +54,7 @@
         else {
             self.actionButton.frame = CGRectMake(0, CGRectGetHeight(self.contentView.bounds) - 44, CGRectGetWidth(self.contentView.bounds), 44);
         }
+        self.actionButton.titleLabel.font = [ABXFont fontWithSize:15.0];
         self.actionButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
         [self.actionButton addTarget:self action:@selector(onAction) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:self.actionButton];
@@ -104,7 +106,7 @@
     static dispatch_once_t onceToken;
     static UIFont *font = nil;
     dispatch_once(&onceToken, ^{
-        font = [UIFont systemFontOfSize:14];
+        font = [ABXFont fontWithSize:14];
     });
     return font;
 }

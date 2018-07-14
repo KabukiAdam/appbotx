@@ -14,6 +14,7 @@
 #import "NSString+ABXSizing.h"
 #import "ABXAttachment.h"
 #import "NSString+ABXLocalized.h"
+#import "ABXFont.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -58,7 +59,7 @@ static NSInteger const kCloseAlert = 1;
     
     // Email label
     NSString *promptText = [@"Your Email:" localizedString];
-    UIFont *promptFont = [UIFont systemFontOfSize:15];
+    UIFont *promptFont = [ABXFont fontWithSize:15.0];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, [promptText widthToFitFont:promptFont], 50)];
     label.textColor = [UIColor grayColor];
     label.text = promptText;
@@ -73,7 +74,7 @@ static NSInteger const kCloseAlert = 1;
     }
     UITextField *textField = [[UITextField alloc] initWithFrame:tfRect];
     textField.placeholder = [@"Email Placeholder" localizedString];
-    textField.font = [UIFont systemFontOfSize:15];
+    textField.font = [ABXFont fontWithSize:15.0];
     textField.keyboardType = UIKeyboardTypeEmailAddress;
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -91,7 +92,7 @@ static NSInteger const kCloseAlert = 1;
     // Text view
     self.textView = [[ABXTextView alloc] initWithFrame:CGRectMake(15, 51, CGRectGetWidth(self.view.frame) - 30, CGRectGetHeight(self.view.frame) - 51)];
     self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.textView.font = [UIFont systemFontOfSize:15];
+    self.textView.font = [ABXFont fontWithSize:15.0];
     self.textView.placeholder = self.placeholder ?: [@"How can we help?" localizedString];
     self.textView.delegate = self;
     [scrollView addSubview:self.textView];
@@ -385,7 +386,7 @@ static NSInteger const kCloseAlert = 1;
     label.textColor = [UIColor whiteColor];
     label.text = [@"Sending..." localizedString];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont systemFontOfSize:15];
+    label.font = [ABXFont fontWithSize:15.0];
     label.backgroundColor = [UIColor clearColor];
     [content addSubview:label];
     

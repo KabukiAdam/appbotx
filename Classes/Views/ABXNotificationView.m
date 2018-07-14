@@ -12,6 +12,7 @@
 
 #import "NSString+ABXSizing.h"
 #import "NSString+ABXLocalized.h"
+#import "ABXFont.h"
 
 @interface ABXNotificationView ()
 
@@ -35,7 +36,7 @@
     
     
     // Calculate the label height
-    UIFont *font = [UIFont systemFontOfSize:15];
+    UIFont *font = [ABXFont fontWithSize:15];
     CGFloat labelHeight = [text heightForWidth:kMaxWidth andFont:font];
     
     NSInteger topPadding = [self topOffsetForController:controller];
@@ -67,7 +68,7 @@
         [button setTitle:actionText forState:UIControlStateNormal];
         button.frame = CGRectMake((CGRectGetWidth(view.bounds) - kMaxWidth)/2, totalHeight - 40, kMaxWidth/2, 40);
         button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        button.titleLabel.font = [ABXFont fontWithSize:15];
         [button addTarget:view action:@selector(onAction:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:button];
     }
@@ -83,7 +84,7 @@
         button.frame = CGRectMake(0, totalHeight - 40, CGRectGetWidth(view.bounds), 40);
     }
     button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    button.titleLabel.font = [ABXFont fontWithSize:15];
     [button addTarget:view action:@selector(onClose:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:button];
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6679B4F420FA90E8009FC897 /* ABXFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 6679B4F320FA90E8009FC897 /* ABXFont.m */; };
 		E0245EA31964F229008F163B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E0245EA51964F229008F163B /* Localizable.strings */; };
 		E0369CE8193822F10082ADB7 /* ABXFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0369CE7193822F10082ADB7 /* ABXFeedbackViewController.m */; };
 		E0369CEB1938233F0082ADB7 /* ABXKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = E0369CEA1938233F0082ADB7 /* ABXKeychain.m */; };
@@ -51,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6679B4F220FA90E8009FC897 /* ABXFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABXFont.h; sourceTree = "<group>"; };
+		6679B4F320FA90E8009FC897 /* ABXFont.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABXFont.m; sourceTree = "<group>"; };
 		E0245EA41964F229008F163B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E0245EA61964F243008F163B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E0245EA71964F243008F163B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				E0B026A5195BAEC00065C07B /* NSString+ABXLocalized.m */,
 				E0B026F0196119E80065C07B /* UIViewController+ABXScreenshot.h */,
 				E0B026F1196119E80065C07B /* UIViewController+ABXScreenshot.m */,
+				6679B4F220FA90E8009FC897 /* ABXFont.h */,
+				6679B4F320FA90E8009FC897 /* ABXFont.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				E039FDA1192C8F7A00BA0B76 /* ABXIssue.m in Sources */,
 				E039FD90192C4DF500BA0B76 /* ABXFaq.m in Sources */,
 				E0C537CA192DCDCB00858D01 /* ABXBaseListViewController.m in Sources */,
+				6679B4F420FA90E8009FC897 /* ABXFont.m in Sources */,
 				E039FD9B192C5BFB00BA0B76 /* ABXVersion.m in Sources */,
 				E0B026A6195BAEC00065C07B /* NSString+ABXLocalized.m in Sources */,
 				E0C537C7192DCC7500858D01 /* ABXVersionsViewController.m in Sources */,
